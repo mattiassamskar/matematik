@@ -1,7 +1,7 @@
 var app = new Vue({
   el: '#app',
   mounted: function () {
-
+    this.update();
   },
   data: {
     first: 0,
@@ -9,14 +9,14 @@ var app = new Vue({
   },
   methods: {
     update: function () {
-      this.first = getRandomInt(0, 9);
-      this.second = getRandomInt(0, 9);
+      this.first = getRandomIntInclusive(1, 9);
+      this.second = getRandomIntInclusive(1, 9);
     }
   }
 });
 
-function getRandomInt(min, max) {
+function getRandomIntInclusive(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
