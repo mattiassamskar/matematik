@@ -1,0 +1,13 @@
+[v-cloak] {
+  display: none;
+}
+.container {
+  height: 100vh;
+  width: 100vh;
+  user-select: none;
+  display: flex;
+  justify-content: center;
+  margin-top: 30vh;
+  font-size: 20vh;
+  font-family: sans-serif;
+}
