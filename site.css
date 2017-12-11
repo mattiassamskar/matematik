@@ -10,10 +10,10 @@
   position: absolute;
   font-size: 20vh;
   font-family: sans-serif;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 .container > span {
   margin-left: 10px;
   margin-right: 10px;
   margin-top: 30vh;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
