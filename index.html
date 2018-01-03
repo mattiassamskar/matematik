@@ -9,10 +9,12 @@
 </head>
 
 <body>
-  <div id="app" v-cloak class="container" v-on:click="update">
-    <span>{{first}}</span>
-    <span>*</span>
-    <span>{{second}}</span>
+  <div id="app" class="container" v-on:click="update">
+    <div v-cloak class="app">
+      <span v-on:click="updateFirst">{{first}}</span>
+      <span>*</span>
+      <span v-on:click="updateSecond">{{second}}</span>
+    </div>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.9/vue.min.js"></script>
   <script src="index.js"></script>

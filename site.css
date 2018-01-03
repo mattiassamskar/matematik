@@ -8,6 +8,8 @@ body {
   height: 100%;
   width: 100%;
   position: absolute;
+}
+.app {
   display: flex;
   justify-content: center;
   font-family: sans-serif;
@@ -15,7 +17,7 @@ body {
   user-select: none;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
-.container > span {
+.app > span {
   margin-left: 10px;
   margin-right: 10px;
   margin-top: 30vh;

@@ -8,15 +8,23 @@ var app = new Vue({
     second: 0
   },
   methods: {
-    update: function () {
-      this.first = getRandomIntInclusive(1, 9);
-      this.second = getRandomIntInclusive(1, 9);
+    updateFirst: function (evt) {
+      this.first = getRandomInt();
+      evt.stopPropagation();
+    },
+    updateSecond: function (evt) {
+      this.second = getRandomInt();
+      evt.stopPropagation();
+    },
+    update: function (evt) {
+      this.first = getRandomInt();
+      this.second = getRandomInt();
     }
   }
 });
 
-function getRandomIntInclusive(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
+function getRandomInt() {
+  var min = 1;
+  var max = 9;
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
