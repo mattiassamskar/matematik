@@ -4,10 +4,24 @@ body {
 [v-cloak] {
   display: none;
 }
-.container {
-  height: 100%;
+.container1 {
+  height: 33%;
   width: 100%;
-  position: absolute;
+  background: #CFF09E;
+  user-select: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+.container2 {
+  height: 33%;
+  width: 100%;
+  background: #A8DBA8;
+  user-select: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+.container3 {
+  height: 33%;
+  width: 100%;
+  background: #3B8686;
   user-select: none;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
@@ -15,10 +29,11 @@ body {
   display: flex;
   justify-content: center;
   font-family: sans-serif;
-  font-size: 20vh;
+  font-size: 12vh;
 }
 .app > span {
   margin-left: 10px;
   margin-right: 10px;
-  margin-top: 30vh;
+  margin-top: 10vh;
+  margin-bottom: 10vh;
 }
