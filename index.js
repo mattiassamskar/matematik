@@ -11,8 +11,11 @@ var app1 = new Vue({
     init: function(number) {
       if (this.locked) return;
 
+      this.locked = true;
+      this.answer = "?";
       this.first = number;
       this.second = 1;
+      this.calc();
     },
     next: function() {
       if (this.locked) return;
