@@ -1,62 +1,17 @@
 var app1 = new Vue({
-  el: '#app1',
-  mounted: function () {
-    this.update();
-  },
+  el: "#app",
   data: {
-    first: 0,
-    second: 0
+    first: 1,
+    second: 1,
+    numbers: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
   },
   methods: {
-    updateFirst: function (evt) {
-      this.first = getRandomInt(1, 9);
-      evt.stopPropagation();
+    init: function(number) {
+      this.first = number;
+      this.second = 1;
     },
-    updateSecond: function (evt) {
-      this.second = getRandomInt(1 ,9);
-      evt.stopPropagation();
-    },
-    update: function (evt) {
-      this.first = getRandomInt(1 ,9);
-      this.second = getRandomInt(1 ,9);
+    next: function() {
+      this.second = this.second + 1;
     }
   }
 });
-
-var app2 = new Vue({
-  el: '#app2',
-  mounted: function () {
-    this.update();
-  },
-  data: {
-    first: 0,
-    second: 0
-  },
-  methods: {
-    update: function (evt) {
-      this.first = getRandomInt(100, 900);
-      this.second = getRandomInt(10 ,99);
-    }
-  }
-});
-
-var app3 = new Vue({
-  el: '#app3',
-  mounted: function () {
-    this.update();
-  },
-  data: {
-    first: 0,
-    second: 0
-  },
-  methods: {
-    update: function (evt) {
-      this.first = getRandomInt(100, 900);
-      this.second = getRandomInt(10 ,99);
-    }
-  }
-});
-
-function getRandomInt(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}

@@ -9,25 +9,19 @@
 </head>
 
 <body>
-  <div id="app1" class="container1" v-on:click="update">
-    <div v-cloak class="app">
-      <span v-on:click="updateFirst">{{first}}</span>
-      <span>*</span>
-      <span v-on:click="updateSecond">{{second}}</span>
+  <div id="app" class="app">
+    <div class="calc">
+      <div v-on:click="next">
+        <span>{{first}}</span>
+        <span>*</span>
+        <span>{{second}}</span>
+      </div>
+
     </div>
-  </div>
-  <div id="app2" class="container2" v-on:click="update">
-    <div v-cloak class="app">
-      <span>{{first}}</span>
-      <span>+</span>
-      <span>{{second}}</span>
-    </div>
-  </div>
-  <div id="app3" class="container3" v-on:click="update">
-    <div v-cloak class="app">
-      <span>{{first}}</span>
-      <span>-</span>
-      <span>{{second}}</span>
+    <div v-cloak class="numbers">
+      <div v-for="number in numbers" v-on:click="init(number)" class="number">
+        {{number}}
+      </div>
     </div>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.9/vue.min.js"></script>
