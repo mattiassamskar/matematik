@@ -15,8 +15,12 @@ body {
   flex-direction: column;
   justify-content: space-between;
 }
-.calc {
+.answer {
   margin-top: 50px;
+  display: flex;
+  justify-content: center;
+}
+.calc {
   display: flex;
   justify-content: center;
 }

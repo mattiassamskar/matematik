@@ -10,13 +10,15 @@
 
 <body>
   <div id="app" class="app">
+    <div class="answer">
+      {{answer}}
+    </div>
     <div class="calc">
       <div v-on:click="next">
         <span>{{first}}</span>
         <span>*</span>
         <span>{{second}}</span>
       </div>
-
     </div>
     <div v-cloak class="numbers">
       <div v-for="number in numbers" v-on:click="init(number)" class="number">
