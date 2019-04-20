@@ -22,6 +22,8 @@ body {
   grid-gap: 10px;
 }
 .number {
+  align-items: center;
+  display: grid;
   border: 5px;
   padding: 5px;
   color: white;
