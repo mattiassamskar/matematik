@@ -1,33 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="site.css" />
+    <title>Matematik</title>
+  </head>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="site.css">
-  <title>Matematik</title>
-</head>
-
-<body>
-  <div id="app" class="app">
-    <div class="answer">
-      {{answer}}
-    </div>
-    <div class="calc">
+  <body>
+    <div id="app" class="app">
+      {{ answer }}
       <div v-on:click="next">
-        <span>{{first}}</span>
+        <span>{{ first }}</span>
         <span>*</span>
-        <span>{{second}}</span>
+        <span>{{ second }}</span>
+      </div>
+      <div v-cloak class="numbers">
+        <div v-for="number in numbers" v-on:click="init(number)" class="number">
+          {{ number }}
+        </div>
       </div>
     </div>
-    <div v-cloak class="numbers">
-      <div v-for="number in numbers" v-on:click="init(number)" class="number">
-        {{number}}
-      </div>
-    </div>
-  </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.9/vue.min.js"></script>
-  <script src="index.js"></script>
-</body>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.9/vue.min.js"></script>
+    <script src="index.js"></script>
+  </body>
 </html>

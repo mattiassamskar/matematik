@@ -1,48 +1,32 @@
+html,
 body {
-  margin: 0px;
+  margin: 0;
+  height: 100%;
 }
 [v-cloak] {
   display: none;
 }
 .app {
-  height: 100vh;
+  height: 100%;
+  min-height: 100%;
+  display: grid;
   user-select: none;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  justify-content: center;
   font-family: sans-serif;
-  font-size: 10vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  font-size: 40px;
+  text-align: center;
 }
-.answer {
-  margin-top: 50px;
-  display: flex;
-  justify-content: center;
-}
-.calc {
-  display: flex;
-  justify-content: center;
+.numbers {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
 }
 .number {
   border: 5px;
-  margin: 2px;
-  display: flex;
-  justify-content: center;
+  padding: 5px;
   color: white;
   background-color: gray;
   border-color: black;
   border-style: solid;
-}
-.numbers {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  margin-bottom: 10px;
-}
-.numbers > span {
-  margin-left: 10px;
-  margin-right: 10px;
-  margin-top: 10vh;
-  margin-bottom: 10vh;
+  text-align: center;
 }
