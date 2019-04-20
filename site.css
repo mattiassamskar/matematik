@@ -16,6 +16,10 @@ body {
   font-size: 40px;
   text-align: center;
 }
+.answer {
+  display: grid;
+  align-items: center;
+}
 .numbers {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
