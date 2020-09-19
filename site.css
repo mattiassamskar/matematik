@@ -71,7 +71,7 @@ body {
   opacity: 0.1;
 
   animation-name: move-shadow;
-  animation-duration: 4s;
+  animation-duration: 7s;
   animation-timing-function: cubic-bezier();
 }
 @keyframes move-shadow {
