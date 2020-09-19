@@ -4,11 +4,17 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="site.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Khula:wght@800&display=swap"
+      rel="stylesheet"
+    />
     <title>Matematik</title>
   </head>
 
   <body>
     <div id="app" class="app">
+      <div class="image"></div>
+      <div v-if="locked" class="shadow"></div>
       <div class="question">{{ first }} x {{ second }}</div>
       <div class="equals">=</div>
       <div class="answer">{{ answer }}</div>

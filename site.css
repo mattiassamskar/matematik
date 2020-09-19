@@ -13,11 +13,10 @@ body {
   flex-direction: column;
   user-select: none;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  font-family: sans-serif;
+  font-family: "Khula", sans-serif;
   font-size: 48px;
   text-align: center;
-  background: dodgerblue;
-  color: whitesmoke;
+  color: darkslategray;
 }
 .question {
   display: flex;
@@ -47,11 +46,39 @@ body {
 .number {
   align-items: center;
   display: grid;
-  border: 5px;
-  padding: 5px;
   color: green;
-  background-color: greenyellow;
-  border-color: yellowgreen;
-  border-style: solid;
+  background-color: lawngreen;
   text-align: center;
+}
+.image {
+  left: 0;
+  right: 0;
+  position: absolute;
+  height: 100%;
+  z-index: -2;
+  opacity: 0.4;
+  background: url(https://i.pinimg.com/originals/54/af/24/54af240b0583dddc9ccbf224f1279de0.jpg);
+  background-size: 100%;
+}
+.shadow {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+  background: black;
+  opacity: 0.1;
+
+  animation-name: move-shadow;
+  animation-duration: 4s;
+  animation-timing-function: cubic-bezier();
+}
+@keyframes move-shadow {
+  from {
+    transform: translateY(0%);
+  }
+  to {
+    transform: translateY(-100%);
+  }
 }
