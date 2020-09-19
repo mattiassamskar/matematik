@@ -16,7 +16,8 @@ body {
   font-family: "Khula", sans-serif;
   font-size: 48px;
   text-align: center;
-  color: darkslategray;
+  color: black;
+  text-shadow: 1px 1px #fff;
 }
 .question {
   display: flex;
@@ -56,8 +57,8 @@ body {
   position: absolute;
   height: 100%;
   z-index: -2;
-  opacity: 0.4;
-  background: url(https://i.pinimg.com/originals/54/af/24/54af240b0583dddc9ccbf224f1279de0.jpg);
+  opacity: 0.7;
+  background: url(https://c1.wallpaperflare.com/preview/221/343/793/bunny-rabbit-cute-animal.jpg);
   background-size: 100%;
 }
 .shadow {
@@ -68,7 +69,7 @@ body {
   bottom: 0;
   z-index: -1;
   background: black;
-  opacity: 0.1;
+  opacity: 0.2;
 
   animation-name: move-shadow;
   animation-duration: 8s;
