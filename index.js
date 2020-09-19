@@ -19,7 +19,7 @@ var app1 = new Vue({
       setTimeout(function () {
         self.answer = self.first * self.second;
         self.locked = false;
-      }, 3000);
+      }, 8000);
     },
   },
 });
