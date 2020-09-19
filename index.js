@@ -5,32 +5,25 @@ var app1 = new Vue({
     first: 1,
     second: 1,
     answer: "?",
-    numbers: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    numbers: [2, 3, 4, 5, 6, 7, 8, 9],
   },
   methods: {
-    init: function(number) {
+    next: function (number) {
       if (this.locked) return;
 
-      this.locked = true;
-      this.answer = "?";
-      this.first = number;
-      this.second = 1;
-      this.calc();
-    },
-    next: function() {
-      if (this.locked) return;
-
-      this.locked = true;
-      this.answer = "?";
-      this.second = this.second + 1;
-      this.calc();
-    },
-    calc: function() {
       const self = this;
-      setTimeout(function() {
+      this.locked = true;
+      this.first = number;
+      this.second = this.numbers[getRandomInt(this.numbers.length - 1)];
+      this.answer = "?";
+      setTimeout(function () {
         self.answer = self.first * self.second;
         self.locked = false;
-      }, 3000)
-    }
-  }
+      }, 3000);
+    },
+  },
 });
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}

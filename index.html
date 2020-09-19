@@ -9,16 +9,11 @@
 
   <body>
     <div id="app" class="app">
-      <div class="answer">
-        {{ answer }}
-      </div>
-      <div v-on:click="next">
-        <span>{{ first }}</span>
-        <span>*</span>
-        <span>{{ second }}</span>
-      </div>
+      <div class="question">{{ first }} x {{ second }}</div>
+      <div class="equals">=</div>
+      <div class="answer">{{ answer }}</div>
       <div v-cloak class="numbers">
-        <div v-for="number in numbers" v-on:click="init(number)" class="number">
+        <div v-for="number in numbers" v-on:click="next(number)" class="number">
           {{ number }}
         </div>
       </div>
