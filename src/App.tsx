@@ -42,7 +42,7 @@ const Game = ({ onQuit, onWin }: { onQuit: () => void; onWin: () => void }) => {
   }, [one, two, answer]);
 
   useEffect(() => {
-    if (points >= 2) {
+    if (points >= 10) {
       onWin();
     }
   }, [onWin, points]);
