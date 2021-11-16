@@ -11,7 +11,7 @@ import { Box } from "@mui/system";
 import "./fireworks.css";
 
 function App() {
-  const [state, setState] = useState<"playing" | "winning">("winning");
+  const [state, setState] = useState<"playing" | "winning">("playing");
 
   return (
     <Container maxWidth="sm">
