@@ -7,8 +7,8 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import "./App.css";
 import { Box } from "@mui/system";
+import "./fireworks.css";
 
 function App() {
   const [state, setState] = useState<"playing" | "winning">("winning");
@@ -101,6 +101,10 @@ const Winning = ({ onClose }: { onClose: () => void }) => (
     <Button variant="contained" color="success" size="large" onClick={onClose}>
       Börja om
     </Button>
+    <div className="pyro">
+      <div className="before"></div>
+      <div className="after"></div>
+    </div>
   </Stack>
 );
 
