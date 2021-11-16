@@ -1,36 +1,35 @@
 import { useEffect, useState } from "react";
+import {
+  Button,
+  Container,
+  LinearProgress,
+  Stack,
+  TextField,
+  Typography,
+} from "@mui/material";
 import "./App.css";
+import { Box } from "@mui/system";
 
 function App() {
-  const [state, setState] = useState<"initial" | "playing" | "winning">(
-    "initial"
-  );
+  const [state, setState] = useState<"playing" | "winning">("winning");
 
   return (
-    <div className="App">
-      {state === "initial" && <Welcome onClick={() => setState("playing")} />}
-      {state === "playing" && (
-        <Game
-          onQuit={() => setState("initial")}
-          onWin={() => setState("winning")}
-        />
-      )}
-      {state === "winning" && <Winning onClose={() => setState("initial")} />}
-    </div>
+    <Container maxWidth="sm">
+      <Box mt={8} height="100vh">
+        {state === "playing" && <Game onWin={() => setState("winning")} />}
+        {state === "winning" && <Winning onClose={() => setState("playing")} />}
+      </Box>
+    </Container>
   );
 }
 
 export default App;
 
-const Welcome = ({ onClick }: { onClick: () => void }) => (
-  <button onClick={onClick}>Starta</button>
-);
-
-const Game = ({ onQuit, onWin }: { onQuit: () => void; onWin: () => void }) => {
+const Game = ({ onWin }: { onWin: () => void }) => {
   const [one, setOne] = useState(randomInt());
   const [two, setTwo] = useState(randomInt());
   const [points, setPoints] = useState(0);
-  const [answer, setAnswer] = useState<string>();
+  const [answer, setAnswer] = useState("");
   const [isCorrect, setIsCorrect] = useState(false);
 
   useEffect(() => {
@@ -42,7 +41,7 @@ const Game = ({ onQuit, onWin }: { onQuit: () => void; onWin: () => void }) => {
   }, [one, two, answer]);
 
   useEffect(() => {
-    if (points >= 10) {
+    if (points >= 15) {
       onWin();
     }
   }, [onWin, points]);
@@ -55,31 +54,54 @@ const Game = ({ onQuit, onWin }: { onQuit: () => void; onWin: () => void }) => {
   };
 
   return (
-    <div>
-      <div>
-        {one} x {two}
-      </div>
-      <input
-        type="number"
+    <Stack spacing={4}>
+      <Box>
+        <Typography variant="h2" textAlign="center">
+          Vad blir
+        </Typography>
+        <Typography variant="h2" textAlign="center">
+          {one} x {two}?
+        </Typography>
+      </Box>
+      <LinearProgress
+        variant="determinate"
+        color="success"
+        sx={{ height: 10, borderRadius: 5 }}
+        value={(points * 100) / 15}
+      />
+      <TextField
+        variant="outlined"
+        inputProps={{ inputMode: "numeric" }}
         value={answer}
         onChange={(e) => setAnswer(e.target.value)}
         disabled={isCorrect}
-      ></input>
-      <div>Poäng: {points}</div>
-      <button onClick={next} disabled={!isCorrect}>
+      ></TextField>
+      <Button
+        variant="contained"
+        color="success"
+        size="large"
+        onClick={next}
+        disabled={!isCorrect}
+      >
         Nästa
-      </button>
-      <button onClick={onQuit}>Tillbaka</button>
-    </div>
+      </Button>
+    </Stack>
   );
 };
 
 const Winning = ({ onClose }: { onClose: () => void }) => (
-  <div>
-    <div>Grattis, du klarade det!</div>
-    <div>{new Date().toLocaleString()}</div>
-    <button onClick={onClose}>Börja om</button>
-  </div>
+  <Stack spacing={4}>
+    <Typography variant="h2" textAlign="center">
+      Grattis, du klarade det!
+    </Typography>
+    <Typography variant="body1" textAlign="center">
+      {new Date().toLocaleString("sv-SE")}
+    </Typography>
+
+    <Button variant="contained" color="success" size="large" onClick={onClose}>
+      Börja om
+    </Button>
+  </Stack>
 );
 
 const randomInt = () => Math.floor(Math.random() * 6 + 4);
