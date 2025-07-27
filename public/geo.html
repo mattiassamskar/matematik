@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" translate="no">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Current Coordinates</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        padding: 2rem;
+      }
+      td {
+        font-family: monospace;
+        font-size: clamp(1rem, 4vw, 5rem);
+        padding-bottom: 1rem;
+      }
+      #status {
+        margin-top: 1rem;
+        color: gray;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Current Coordinates (DMS)</h1>
+    <br />
+    <table>
+      <tbody>
+        <tr>
+          <td>Latitude:&nbsp;</td>
+          <td id="latitude">--</td>
+        </tr>
+        <tr>
+          <td>Longitude:&nbsp;</td>
+          <td id="longitude">--</td>
+        </tr>
+      </tbody>
+    </table>
+    <div id="status"></div>
+
+    <script>
+      function toDMS(deg, isLat) {
+        const absolute = Math.abs(deg);
+        const degrees = Math.floor(absolute);
+        const minutesNotTruncated = (absolute - degrees) * 60;
+        const minutes = Math.floor(minutesNotTruncated);
+        const seconds = ((minutesNotTruncated - minutes) * 60).toFixed(2);
+
+        let direction;
+        if (isLat) {
+          direction = deg >= 0 ? "N" : "S";
+        } else {
+          direction = deg >= 0 ? "E" : "W";
+        }
+
+        return `${degrees}°${minutes}'${seconds}" ${direction}`;
+      }
+
+      function updatePosition(position) {
+        document.getElementById("latitude").textContent = `${toDMS(
+          position.coords.latitude,
+          true
+        )}`;
+        document.getElementById("longitude").textContent = `${toDMS(
+          position.coords.longitude,
+          false
+        )}`;
+      }
+
+      function handleError(error) {
+        document.getElementById("status").textContent = `${error.message}`;
+      }
+
+      if ("geolocation" in navigator) {
+        navigator.geolocation.watchPosition(updatePosition, handleError, {
+          enableHighAccuracy: true,
+        });
+      } else {
+        document.getElementById("status").textContent =
+          "Geolocation is not supported by your browser.";
+      }
+    </script>
+  </body>
+</html>
